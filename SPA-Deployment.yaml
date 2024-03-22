@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: google-sso
+spec:
+  selector:
+    matchLabels:
+      app: google-sso 
+  template:
+    metadata:
+      labels:
+        app: google-sso  
+    spec:
+      containers:
+        - name: google-sso
+          image: ozhi0001/google-sso:1.1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+     
