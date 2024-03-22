@@ -5,16 +5,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: google-sso 
+      app: google-sso
   template:
     metadata:
       labels:
-        app: google-sso  
+        app: google-sso
     spec:
       containers:
         - name: google-sso
-          image: ozhi0001/google-sso:1.1
+          image: ozhi0001/google-sso:2.1
           imagePullPolicy: Always
           ports:
           - containerPort: 80
-     
+
