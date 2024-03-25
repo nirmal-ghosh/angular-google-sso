@@ -10,7 +10,7 @@ RUN npm install -g @angular/cli && npm install && ng build
 # Stage 2: Serve Angular application using Nginx
 FROM nginx:alpine
 
-COPY --from=builder /usr/src/app/dist/my-app /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/my-app/browser /usr/share/nginx/html
 
 EXPOSE 80
 

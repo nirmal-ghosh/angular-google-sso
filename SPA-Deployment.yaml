@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: google-sso
-          image: ozhi0001/google-sso:2.1
+          image: ozhi0001/google-sso:2.3
           imagePullPolicy: Always
           ports:
           - containerPort: 80
