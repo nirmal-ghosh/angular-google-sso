@@ -47,4 +47,4 @@ Added an inbound rule to allow port 3000 for opening Grafana
 ![alt text](<Screenshot (2) (1).png>)
 
 Able to open Grafana dashboard
-![alt text](<Screenshot (2) (1)-1.png>)
+![alt text](<image (21).png>)
