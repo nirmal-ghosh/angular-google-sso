@@ -10,6 +10,10 @@ import {
   GoogleLoginProvider,
 } from "@abacritt/angularx-social-login";
 import { GoogleSigninComponent } from './google-signin/google-signin.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpLoggingInterceptor } from './http-logging-interceptor.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +24,11 @@ import { GoogleSigninComponent } from './google-signin/google-signin.component';
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    HttpClientModule,
     LoggerModule.forRoot({
-      serverLoggingUrl: 'http://rsyslog-server-ip:514', // Replace with your rsyslog server IP and port
-      level: 'development' ? NgxLoggerLevel.ERROR : NgxLoggerLevel.DEBUG,
-      serverLogLevel: NgxLoggerLevel.ERROR,
-      disableConsoleLogging: false
+      serverLoggingUrl: 'http://192.168.245.128:514',
+      level: NgxLoggerLevel.LOG,
+      serverLogLevel: NgxLoggerLevel.LOG
     })
   ],
   providers: [
@@ -44,7 +48,8 @@ import { GoogleSigninComponent } from './google-signin/google-signin.component';
           console.error(err);
         },
       } as SocialAuthServiceConfig,
-    }
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpLoggingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

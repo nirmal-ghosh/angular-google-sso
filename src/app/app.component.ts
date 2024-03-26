@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Subscription } from 'rxjs';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
   authSubscription!: Subscription;
 
-  constructor(private authService: SocialAuthService) {}
+  constructor(private authService: SocialAuthService, private logger: NGXLogger) {}
   ngOnDestroy(): void {
     this.authSubscription.unsubscribe();
   }
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.title = user.name;
       this.isLoggedIn = true;
       this.email = user.email;
+      this.logger.log(`${user.name} logged in`)
     });
   }
 
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   googleSignOut(): void  {
+    this.logger.log(`${this.title} logged out`)
     this.authService.signOut();
     location.reload()
   }
