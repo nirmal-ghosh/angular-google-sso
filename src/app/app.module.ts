@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,8 +18,14 @@ import { GoogleSigninComponent } from './google-signin/google-signin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, 
-    SocialLoginModule
+    ReactiveFormsModule,
+    SocialLoginModule,
+    LoggerModule.forRoot({
+      serverLoggingUrl: 'http://rsyslog-server-ip:514', // Replace with your rsyslog server IP and port
+      level: 'development' ? NgxLoggerLevel.ERROR : NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR,
+      disableConsoleLogging: false
+    })
   ],
   providers: [
     {
