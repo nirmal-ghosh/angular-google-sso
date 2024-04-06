@@ -13,7 +13,7 @@ This is the application created in Assignment 1.
 
 ## Preparing for Automation
 
-Virtual Machine created in the lab resource group
+Virtual Machine created for assignment 1
 ![alt text](<WhatsApp Image 2024-04-05 at 7.26.50 PM.jpeg>)
 
 Successfully created the LogAnalytics(syslogAnalytics)
