@@ -26,9 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     SocialLoginModule,
     HttpClientModule,
     LoggerModule.forRoot({
-      serverLoggingUrl: 'http://192.168.245.128:514',
-      level: NgxLoggerLevel.LOG,
-      serverLogLevel: NgxLoggerLevel.LOG
+      serverLoggingUrl: 'localhost:3000/users/rsyslog',
+      level: NgxLoggerLevel.LOG, // Adjust logging level as needed
+      serverLogLevel: NgxLoggerLevel.LOG, // Adjust server log level as needed
+      disableConsoleLogging: false, // Whether to disable console logging
     })
   ],
   providers: [

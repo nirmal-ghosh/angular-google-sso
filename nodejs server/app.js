@@ -7,7 +7,18 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const cors = require('cors');
+
 var app = express();
+
+app.use(cors(
+  {
+    "origin": ['*','http://localhost:4200','localhost:4200'],
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+  }
+));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
